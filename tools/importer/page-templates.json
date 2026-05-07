@@ -1,0 +1,48 @@
+{
+  "metadata": {
+    "projectType": "xwalk"
+  },
+  "templates": [
+    {
+      "name": "cuztomgraft-landing-page",
+      "urls": ["https://cuztomgraft.zimvie.com/en-GB"],
+      "description": "CuztomGraft product landing page with hero, product information, features, and call-to-action sections",
+      "blocks": [
+        {
+          "name": "hero",
+          "instances": [".file-upload-form__background"]
+        },
+        {
+          "name": "form",
+          "instances": [".file-upload-form"]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Hero Banner",
+          "selector": ".file-upload-form__background",
+          "style": null,
+          "blocks": ["hero"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-2",
+          "name": "Form",
+          "selector": ".file-upload-form",
+          "style": null,
+          "blocks": ["form"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-3",
+          "name": "Disclaimer",
+          "selector": ".container.rhythm--large.grid__gap--none",
+          "style": null,
+          "blocks": [],
+          "defaultContent": [".heading.heading--h3.heading--size-h4:last-of-type", ".container.rhythm--large.grid__gap--none i p"]
+        }
+      ]
+    }
+  ]
+}
