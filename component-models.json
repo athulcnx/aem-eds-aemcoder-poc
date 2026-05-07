@@ -52,30 +52,12 @@
         "name": "titleType",
         "label": "Title Type",
         "options": [
-          {
-            "name": "h1",
-            "value": "h1"
-          },
-          {
-            "name": "h2",
-            "value": "h2"
-          },
-          {
-            "name": "h3",
-            "value": "h3"
-          },
-          {
-            "name": "h4",
-            "value": "h4"
-          },
-          {
-            "name": "h5",
-            "value": "h5"
-          },
-          {
-            "name": "h6",
-            "value": "h6"
-          }
+          { "name": "h1", "value": "h1" },
+          { "name": "h2", "value": "h2" },
+          { "name": "h3", "value": "h3" },
+          { "name": "h4", "value": "h4" },
+          { "name": "h5", "value": "h5" },
+          { "name": "h6", "value": "h6" }
         ]
       }
     ]
@@ -103,18 +85,9 @@
         "name": "linkType",
         "label": "Type",
         "options": [
-          {
-            "name": "default",
-            "value": ""
-          },
-          {
-            "name": "primary",
-            "value": "primary"
-          },
-          {
-            "name": "secondary",
-            "value": "secondary"
-          }
+          { "name": "default", "value": "" },
+          { "name": "primary", "value": "primary" },
+          { "name": "secondary", "value": "secondary" }
         ]
       }
     ]
@@ -133,10 +106,8 @@
         "name": "style",
         "label": "Style",
         "options": [
-          {
-            "name": "Highlight",
-            "value": "highlight"
-          }
+          { "name": "Highlight", "value": "highlight" },
+          { "name": "Form", "value": "form" }
         ]
       }
     ]
@@ -211,6 +182,282 @@
         "name": "text",
         "value": "",
         "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "region-selector",
+    "fields": [
+      {
+        "component": "text",
+        "name": "heading",
+        "label": "Step Heading",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "fieldName",
+        "label": "Field Name",
+        "valueType": "string",
+        "description": "HTML name attribute for the select field"
+      },
+      {
+        "component": "boolean",
+        "name": "required",
+        "label": "Required"
+      }
+    ]
+  },
+  {
+    "id": "region-selector-option",
+    "fields": [
+      {
+        "component": "text",
+        "name": "label",
+        "label": "Display Label",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "value",
+        "label": "Locale Code",
+        "valueType": "string",
+        "description": "e.g. en-GB, de-DE"
+      },
+      {
+        "component": "text",
+        "name": "href",
+        "label": "Redirect URL",
+        "valueType": "string"
+      },
+      {
+        "component": "boolean",
+        "name": "selected",
+        "label": "Selected by Default"
+      }
+    ]
+  },
+  {
+    "id": "product-picker",
+    "fields": [
+      {
+        "component": "text",
+        "name": "heading",
+        "label": "Step Heading",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "fieldName",
+        "label": "Field Name",
+        "valueType": "string",
+        "description": "HTML name attribute for the radio group"
+      },
+      {
+        "component": "boolean",
+        "name": "required",
+        "label": "Required"
+      },
+      {
+        "component": "text",
+        "name": "footnote",
+        "label": "Footnote Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "product-picker-item",
+    "fields": [
+      {
+        "component": "text",
+        "name": "label",
+        "label": "Product Name",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "value",
+        "label": "Form Value",
+        "valueType": "string",
+        "description": "Value submitted with the form"
+      },
+      {
+        "component": "reference",
+        "name": "image",
+        "label": "Product Image"
+      },
+      {
+        "component": "text",
+        "name": "imageAlt",
+        "label": "Image Alt Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "form-fields",
+    "fields": [
+      {
+        "component": "text",
+        "name": "heading",
+        "label": "Step Heading",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "footnote",
+        "label": "Footnote Text",
+        "valueType": "string"
+      },
+      {
+        "component": "select",
+        "name": "layout",
+        "label": "Layout",
+        "options": [
+          { "name": "Single Column", "value": "single" },
+          { "name": "Two Columns", "value": "two-col" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "form-fields-field",
+    "fields": [
+      {
+        "component": "text",
+        "name": "label",
+        "label": "Field Label",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "fieldName",
+        "label": "Field Name",
+        "valueType": "string",
+        "description": "HTML name attribute"
+      },
+      {
+        "component": "select",
+        "name": "fieldType",
+        "label": "Field Type",
+        "options": [
+          { "name": "Text", "value": "text" },
+          { "name": "Email", "value": "email" },
+          { "name": "Telephone", "value": "tel" },
+          { "name": "Textarea", "value": "textarea" }
+        ]
+      },
+      {
+        "component": "boolean",
+        "name": "required",
+        "label": "Required"
+      },
+      {
+        "component": "text",
+        "name": "pattern",
+        "label": "Validation Pattern",
+        "valueType": "string",
+        "description": "Regex pattern for validation"
+      },
+      {
+        "component": "text",
+        "name": "placeholder",
+        "label": "Placeholder",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "file-upload",
+    "fields": [
+      {
+        "component": "text",
+        "name": "heading",
+        "label": "Step Heading",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "fieldName",
+        "label": "Field Name",
+        "valueType": "string",
+        "description": "HTML name attribute for the file input"
+      },
+      {
+        "component": "text",
+        "name": "acceptFormats",
+        "label": "Accepted Formats",
+        "valueType": "string",
+        "description": "Comma-separated file extensions, e.g. .pdf,.zip,.rar"
+      },
+      {
+        "component": "boolean",
+        "name": "multiple",
+        "label": "Allow Multiple Files"
+      },
+      {
+        "component": "boolean",
+        "name": "required",
+        "label": "Required"
+      },
+      {
+        "component": "richtext",
+        "name": "instructions",
+        "label": "Upload Instructions",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "legalText",
+        "label": "Legal / Consent Text",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "submitLabel",
+        "label": "Submit Button Label",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "file-upload-consent",
+    "fields": [
+      {
+        "component": "text",
+        "name": "label",
+        "label": "Checkbox Label",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "fieldName",
+        "label": "Field Name",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "value",
+        "label": "Submitted Value",
+        "valueType": "string"
+      },
+      {
+        "component": "boolean",
+        "name": "required",
+        "label": "Required"
+      },
+      {
+        "component": "text",
+        "name": "linkText",
+        "label": "Link Text (optional)",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "name": "linkHref",
+        "label": "Link URL (optional)",
         "valueType": "string"
       }
     ]

@@ -71,6 +71,20 @@ function buildAutoBlocks() {
   }
 }
 
+function decorateFormSections(main) {
+  main.querySelectorAll('.section.form').forEach((section) => {
+    const form = document.createElement('form');
+    form.method = 'post';
+    form.enctype = 'multipart/form-data';
+    form.setAttribute('role', 'form');
+    const actionMeta = document.querySelector('meta[name="form-action"]');
+    if (actionMeta) form.action = actionMeta.content;
+
+    [...section.children].forEach((child) => form.append(child));
+    section.append(form);
+  });
+}
+
 /**
  * Decorates the main element.
  * @param {Element} main The main element
@@ -83,6 +97,7 @@ export function decorateMain(main) {
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
+  decorateFormSections(main);
 }
 
 /**

@@ -15,7 +15,11 @@
       "hero",
       "cards",
       "columns",
-      "fragment"
+      "fragment",
+      "region-selector",
+      "product-picker",
+      "form-fields",
+      "file-upload"
     ]
   },
   {
@@ -37,6 +41,30 @@
       "image",
       "button",
       "title"
+    ]
+  },
+  {
+    "id": "region-selector",
+    "components": [
+      "region-selector-option"
+    ]
+  },
+  {
+    "id": "product-picker",
+    "components": [
+      "product-picker-item"
+    ]
+  },
+  {
+    "id": "form-fields",
+    "components": [
+      "form-fields-field"
+    ]
+  },
+  {
+    "id": "file-upload",
+    "components": [
+      "file-upload-consent"
     ]
   }
 ]
