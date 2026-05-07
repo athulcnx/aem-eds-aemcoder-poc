@@ -3,46 +3,28 @@
 
 /**
  * Transformer: cuztomgraft sections.
- * Inserts section breaks (<hr>) and Section Metadata blocks based on template sections.
- * Only runs when template has 2+ sections defined in page-templates.json.
- * All selectors validated against captured DOM in migration-work/cleaned.html.
- *
- * Section selectors from page-templates.json:
- *   section-1: .file-upload-form__background (line 30 in cleaned.html)
- *   section-2: .file-upload-form (line 36 in cleaned.html - nested inside section-1)
- *   section-3: .container.rhythm--large.grid__gap--none (line 310 in cleaned.html - disclaimer)
+ * Inserts section breaks (<hr>) between block tables after parsing is complete.
+ * Runs in afterTransform hook (after parsers have replaced original elements with tables).
  */
 const H = { before: 'beforeTransform', after: 'afterTransform' };
 
 export default function transform(hookName, element, payload) {
-  if (hookName === H.after) {
-    const { template } = payload;
-    if (!template || !template.sections || template.sections.length < 2) return;
+  if (hookName !== H.after) return;
 
-    const document = element.ownerDocument;
-    const sections = template.sections;
+  const document = element.ownerDocument;
 
-    // Process sections in reverse order to avoid position shifts
-    for (let i = sections.length - 1; i >= 0; i--) {
-      const section = sections[i];
-      const sectionEl = element.querySelector(section.selector);
+  // After parsing, blocks become <table> elements. Find all block tables.
+  const blockTables = element.querySelectorAll('table');
+  if (blockTables.length < 2) return;
 
-      if (!sectionEl) continue;
-
-      // Add Section Metadata block after the section element if style is defined
-      if (section.style) {
-        const sectionMetadata = WebImporter.Blocks.createBlock(document, {
-          name: 'Section Metadata',
-          cells: { style: section.style },
-        });
-        sectionEl.after(sectionMetadata);
-      }
-
-      // Insert <hr> before non-first sections to create section breaks
-      if (i > 0) {
-        const hr = document.createElement('hr');
-        sectionEl.before(hr);
-      }
+  // Insert <hr> between consecutive block tables to create section breaks
+  for (let i = 1; i < blockTables.length; i++) {
+    const table = blockTables[i];
+    // Only insert if there isn't already an <hr> before this table
+    const prev = table.previousElementSibling;
+    if (!prev || prev.tagName !== 'HR') {
+      const hr = document.createElement('hr');
+      table.before(hr);
     }
   }
 }

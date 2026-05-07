@@ -85,7 +85,8 @@ function executeTransformers(hookName, element, payload) {
 }
 
 /**
- * Find all blocks on the page based on the embedded template configuration
+ * Find all blocks on the page based on the embedded template configuration.
+ * Returns blocks sorted deepest-first so nested blocks are parsed before their ancestors.
  */
 function findBlocksOnPage(document, template) {
   const pageBlocks = [];
@@ -97,16 +98,21 @@ function findBlocksOnPage(document, template) {
         console.warn(`Block "${blockDef.name}" selector not found: ${selector}`);
       }
       elements.forEach((element) => {
+        let depth = 0;
+        let node = element;
+        while (node.parentElement) { depth++; node = node.parentElement; }
         pageBlocks.push({
           name: blockDef.name,
           selector,
           element,
           section: blockDef.section || null,
+          depth,
         });
       });
     });
   });
 
+  pageBlocks.sort((a, b) => b.depth - a.depth);
   console.log(`Found ${pageBlocks.length} block instances on page`);
   return pageBlocks;
 }

@@ -10,16 +10,6 @@
  * Generated: 2026-05-07
  */
 export default function parse(element, { document }) {
-  // Live DOM structure for .file-upload-form__background:
-  //   - CSS background-image on element itself (full-width cover image)
-  //   - .file-upload-form__banner child div with CSS background-image (branded banner)
-  // Neither image is an <img> tag on the live page; both are CSS backgrounds.
-  // The parser must extract the background-image URL and create an <img> element.
-
-  /**
-   * Helper: extract background-image URL from an element's computed/inline style
-   * and create an <img> element for it.
-   */
   function getBackgroundImage(el) {
     if (!el) return null;
     const style = el.style && el.style.backgroundImage;
@@ -36,29 +26,22 @@ export default function parse(element, { document }) {
     return null;
   }
 
-  // Try to find an existing <img> first (handles scraped/cleaned HTML),
-  // then fall back to CSS background-image extraction (handles live DOM)
   const bannerContainer = element.querySelector('.file-upload-form__banner');
 
-  // Strategy 1: Look for actual <img> or <picture> elements
+  // Strategy 1: Look for actual <img> or <picture> elements (scraped/cleaned HTML)
   let heroImage = element.querySelector(':scope > img, :scope > picture');
   if (!heroImage && bannerContainer) {
     heroImage = bannerContainer.querySelector('img, picture');
   }
 
-  // Strategy 2: Extract from CSS background-image
+  // Strategy 2: Extract from CSS background-image (live DOM)
   if (!heroImage) {
-    // Prefer the banner image (branded content) as the hero image
     heroImage = getBackgroundImage(bannerContainer);
   }
   if (!heroImage) {
-    // Fall back to the container's own background image
     heroImage = getBackgroundImage(element);
   }
 
-  // Build cells array matching library example structure:
-  // Row 1: image (field: image)
-  // Row 2: text (field: text) - empty for image-only heroes
   const cells = [];
 
   // Row 1: Image with field hint
@@ -71,10 +54,15 @@ export default function parse(element, { document }) {
     cells.push(['']);
   }
 
-  // Row 2: Text field - this hero is image-only (no text overlay in source)
-  // Empty row required by xwalk model structure; no hint for empty cells
+  // Row 2: Text field (empty for image-only hero)
   cells.push(['']);
 
   const block = WebImporter.Blocks.createBlock(document, { name: 'hero', cells });
-  element.replaceWith(block);
+
+  // Insert hero block before the element, then move any remaining child content
+  // (e.g., already-parsed form block) out before removing the container
+  element.before(block);
+  const remaining = element.querySelectorAll('table');
+  remaining.forEach((table) => element.before(table));
+  element.remove();
 }

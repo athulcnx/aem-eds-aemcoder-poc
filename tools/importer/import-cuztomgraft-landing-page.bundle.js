@@ -78,7 +78,10 @@ var CustomImportScript = (() => {
     }
     cells.push([""]);
     const block = WebImporter.Blocks.createBlock(document, { name: "hero", cells });
-    element.replaceWith(block);
+    element.before(block);
+    const remaining = element.querySelectorAll("table");
+    remaining.forEach((table) => element.before(table));
+    element.remove();
   }
 
   // tools/importer/parsers/form.js
@@ -122,26 +125,16 @@ var CustomImportScript = (() => {
   // tools/importer/transformers/cuztomgraft-sections.js
   var H2 = { before: "beforeTransform", after: "afterTransform" };
   function transform2(hookName, element, payload) {
-    if (hookName === H2.after) {
-      const { template } = payload;
-      if (!template || !template.sections || template.sections.length < 2) return;
-      const document = element.ownerDocument;
-      const sections = template.sections;
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        const sectionEl = element.querySelector(section.selector);
-        if (!sectionEl) continue;
-        if (section.style) {
-          const sectionMetadata = WebImporter.Blocks.createBlock(document, {
-            name: "Section Metadata",
-            cells: { style: section.style }
-          });
-          sectionEl.after(sectionMetadata);
-        }
-        if (i > 0) {
-          const hr = document.createElement("hr");
-          sectionEl.before(hr);
-        }
+    if (hookName !== H2.after) return;
+    const document = element.ownerDocument;
+    const blockTables = element.querySelectorAll("table");
+    if (blockTables.length < 2) return;
+    for (let i = 1; i < blockTables.length; i++) {
+      const table = blockTables[i];
+      const prev = table.previousElementSibling;
+      if (!prev || prev.tagName !== "HR") {
+        const hr = document.createElement("hr");
+        table.before(hr);
       }
     }
   }
@@ -219,15 +212,23 @@ var CustomImportScript = (() => {
           console.warn(`Block "${blockDef.name}" selector not found: ${selector}`);
         }
         elements.forEach((element) => {
+          let depth = 0;
+          let node = element;
+          while (node.parentElement) {
+            depth++;
+            node = node.parentElement;
+          }
           pageBlocks.push({
             name: blockDef.name,
             selector,
             element,
-            section: blockDef.section || null
+            section: blockDef.section || null,
+            depth
           });
         });
       });
     });
+    pageBlocks.sort((a, b) => b.depth - a.depth);
     console.log(`Found ${pageBlocks.length} block instances on page`);
     return pageBlocks;
   }
