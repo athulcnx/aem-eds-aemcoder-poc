@@ -214,5 +214,15 @@
         "valueType": "string"
       }
     ]
+  },
+  {
+    "id": "form",
+    "fields": [
+      {
+        "component": "aem-content",
+        "name": "formDefinition",
+        "label": "Form Definition (JSON)"
+      }
+    ]
   }
 ]
