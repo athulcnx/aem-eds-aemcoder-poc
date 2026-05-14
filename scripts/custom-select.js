@@ -88,10 +88,10 @@ function decorateCustomSelect(selectWrapper) {
 }
 
 const productImages = {
-  puros_allograft_customzied_block: '/content/images/puros-allograft.jpeg',
-  peek_accuraplate: '/content/images/peek-accuraplate.jpeg',
-  titanium_accuramesh: '/content/images/titanium-accuramesh.jpeg',
-  peek_accuramesh: '/content/images/peek-accuramesh.jpeg',
+  puros_allograft_customzied_block: '/forms/images/puros-allograft.jpeg',
+  peek_accuraplate: '/forms/images/peek-accuraplate.jpeg',
+  titanium_accuramesh: '/forms/images/titanium-accuramesh.jpeg',
+  peek_accuramesh: '/forms/images/peek-accuramesh.jpeg',
 };
 
 function decorateProductRadios() {
