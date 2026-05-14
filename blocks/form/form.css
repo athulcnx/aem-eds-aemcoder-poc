@@ -91,12 +91,17 @@ form:not(.edit-mode) [data-visible="false"] {
 
 main .form-container {
     background-color: transparent;
-    padding: 0;
+    padding: 0 40px;
     width: var(--form-width);
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 main .form {
     background-color: transparent;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 24px;
 }
 
 main .form > div:not(:first-child) {
@@ -891,6 +896,7 @@ main .form form .radio-wrapper.field-opt-article.product-selected label {
 main .form form .radio-wrapper.field-opt-article .product-image {
     width: 100%;
     aspect-ratio: 16/9;
+    max-height: 160px;
     margin-top: 12px;
     border: 1px solid #e8e8e8;
     border-radius: 4px;
