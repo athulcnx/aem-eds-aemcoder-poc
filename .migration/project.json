@@ -1,0 +1,10 @@
+{
+  "type": "xwalk",
+  "contentHostUrl": "author-p92368-e968987.adobeaemcloud.com",
+  "aemSitePath": "/content/aem-eds-aemcoder-poc",
+  "aemAssetsFolderPath": "/content/dam/aem-eds-aemcoder-poc",
+  "aemSiteName": "aem-eds-aemcoder-poc",
+  "aemSiteTitle": "Aemcoder POC Site",
+  "previewOrg": "athulcnx",
+  "previewSite": "aem-eds-aemcoder-poc"
+}

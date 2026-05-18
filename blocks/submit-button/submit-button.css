@@ -1,0 +1,18 @@
+main .submit-button .submit-btn {
+  display: inline-block;
+  background: #1463f7;
+  color: #fff;
+  border: 2px solid transparent;
+  border-radius: 100px;
+  padding: 20px 40px;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  width: auto;
+}
+
+main .submit-button .submit-btn:hover {
+  background: #0b4fd1;
+}

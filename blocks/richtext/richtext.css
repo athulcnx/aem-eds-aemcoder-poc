@@ -1,0 +1,18 @@
+main .richtext .richtext-content {
+  font-size: 15px;
+  color: #1c1137;
+  line-height: 1.7;
+}
+
+main .richtext .richtext-content a {
+  color: #1463f7;
+  text-decoration: underline;
+}
+
+main .richtext .richtext-content p {
+  margin: 0 0 16px;
+}
+
+main .richtext .richtext-content em {
+  font-size: 14px;
+}

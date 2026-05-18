@@ -1,0 +1,69 @@
+main .products .products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+main .products .product-tile {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+main .products .product-radio-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+main .products .product-radio-row input[type="radio"] {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  min-height: 24px;
+  accent-color: #1463f7;
+  cursor: pointer;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+main .products .product-radio-row label {
+  font-size: 15px;
+  font-weight: 500;
+  color: #1c1137;
+  cursor: pointer;
+  line-height: 1.3;
+}
+
+main .products .product-tile.selected .product-radio-row label {
+  color: #1463f7;
+  font-weight: 600;
+}
+
+main .products .product-image {
+  width: 100%;
+  max-height: 160px;
+  aspect-ratio: 16/9;
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+
+main .products .product-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  width: auto;
+  height: auto;
+}
+
+@media (width <= 768px) {
+  main .products .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

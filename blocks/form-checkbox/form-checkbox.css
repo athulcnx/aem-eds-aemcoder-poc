@@ -1,0 +1,35 @@
+main .form-checkbox .checkbox-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 32px;
+  align-items: center;
+}
+
+main .form-checkbox .checkbox-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+main .form-checkbox .checkbox-input {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  border: 2px solid #1c1137;
+  border-radius: 4px;
+  cursor: pointer;
+  accent-color: #1463f7;
+}
+
+main .form-checkbox .checkbox-label {
+  font-size: 16px;
+  color: #1c1137;
+  cursor: pointer;
+}
+
+main .form-checkbox .checkbox-label a {
+  color: #1463f7;
+  text-decoration: underline;
+}
