@@ -52,30 +52,12 @@
         "name": "titleType",
         "label": "Title Type",
         "options": [
-          {
-            "name": "h1",
-            "value": "h1"
-          },
-          {
-            "name": "h2",
-            "value": "h2"
-          },
-          {
-            "name": "h3",
-            "value": "h3"
-          },
-          {
-            "name": "h4",
-            "value": "h4"
-          },
-          {
-            "name": "h5",
-            "value": "h5"
-          },
-          {
-            "name": "h6",
-            "value": "h6"
-          }
+          { "name": "h1", "value": "h1" },
+          { "name": "h2", "value": "h2" },
+          { "name": "h3", "value": "h3" },
+          { "name": "h4", "value": "h4" },
+          { "name": "h5", "value": "h5" },
+          { "name": "h6", "value": "h6" }
         ]
       }
     ]
@@ -103,18 +85,9 @@
         "name": "linkType",
         "label": "Type",
         "options": [
-          {
-            "name": "default",
-            "value": ""
-          },
-          {
-            "name": "primary",
-            "value": "primary"
-          },
-          {
-            "name": "secondary",
-            "value": "secondary"
-          }
+          { "name": "default", "value": "" },
+          { "name": "primary", "value": "primary" },
+          { "name": "secondary", "value": "secondary" }
         ]
       }
     ]
@@ -133,11 +106,201 @@
         "name": "style",
         "label": "Style",
         "options": [
-          {
-            "name": "Highlight",
-            "value": "highlight"
-          }
+          { "name": "Highlight", "value": "highlight" },
+          { "name": "Form Section", "value": "form-section" },
+          { "name": "Disclaimer", "value": "disclaimer" }
         ]
+      }
+    ]
+  },
+  {
+    "id": "layout-wrapper",
+    "fields": [
+      {
+        "component": "select",
+        "name": "layout",
+        "label": "Layout Direction",
+        "options": [
+          { "name": "Row (side by side)", "value": "row" },
+          { "name": "Column (stacked)", "value": "column" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "banner",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Banner Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Alt Text",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "section-title",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Section Title"
+      }
+    ]
+  },
+  {
+    "id": "products",
+    "fields": []
+  },
+  {
+    "id": "product-item",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "productName",
+        "label": "Product Name"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "productImage",
+        "label": "Product Image",
+        "multi": false
+      }
+    ]
+  },
+  {
+    "id": "country-select",
+    "fields": []
+  },
+  {
+    "id": "country-option",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "label",
+        "label": "Country Label (displayed)"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "value",
+        "label": "Country Value (e.g. locale code)"
+      }
+    ]
+  },
+  {
+    "id": "background-image",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Background Image",
+        "multi": false
+      }
+    ]
+  },
+  {
+    "id": "form-text",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "label",
+        "label": "Field Label"
+      },
+      {
+        "component": "select",
+        "name": "fieldType",
+        "label": "Field Type",
+        "options": [
+          { "name": "Text", "value": "text" },
+          { "name": "Email", "value": "email" },
+          { "name": "Phone", "value": "tel" },
+          { "name": "Textarea", "value": "textarea" }
+        ]
+      },
+      {
+        "component": "select",
+        "name": "fieldWidth",
+        "label": "Field Width",
+        "options": [
+          { "name": "Half Width", "value": "half" },
+          { "name": "Full Width", "value": "full" }
+        ]
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "icon",
+        "label": "Field Icon (optional)",
+        "multi": false
+      }
+    ]
+  },
+  {
+    "id": "upload",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "helpText",
+        "label": "Help Information Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "buttonLabel",
+        "label": "Upload Button Label"
+      }
+    ]
+  },
+  {
+    "id": "form-checkbox",
+    "fields": []
+  },
+  {
+    "id": "checkbox-item",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "label",
+        "label": "Checkbox Label (supports links)"
+      }
+    ]
+  },
+  {
+    "id": "richtext",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "content",
+        "label": "Content (supports links)"
+      }
+    ]
+  },
+  {
+    "id": "submit-button",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "buttonText",
+        "label": "Button Text"
       }
     ]
   },
@@ -212,16 +375,6 @@
         "value": "",
         "label": "Text",
         "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "form",
-    "fields": [
-      {
-        "component": "aem-content",
-        "name": "formDefinition",
-        "label": "Form Definition (JSON)"
       }
     ]
   }

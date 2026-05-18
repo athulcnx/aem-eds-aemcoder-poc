@@ -16,7 +16,41 @@
       "cards",
       "columns",
       "fragment",
-      "form"
+      "layout-wrapper",
+      "banner",
+      "section-title",
+      "products",
+      "country-select",
+      "background-image",
+      "form-text",
+      "upload",
+      "form-checkbox",
+      "richtext",
+      "submit-button"
+    ]
+  },
+  {
+    "id": "layout-wrapper",
+    "components": [
+      "layout-item"
+    ]
+  },
+  {
+    "id": "products",
+    "components": [
+      "product-item"
+    ]
+  },
+  {
+    "id": "country-select",
+    "components": [
+      "country-option"
+    ]
+  },
+  {
+    "id": "form-checkbox",
+    "components": [
+      "checkbox-item"
     ]
   },
   {

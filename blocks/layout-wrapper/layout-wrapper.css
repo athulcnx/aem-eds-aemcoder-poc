@@ -1,0 +1,90 @@
+/* Layout Wrapper - spacing between wrappers */
+main .layout-wrapper-wrapper {
+  margin: 0;
+}
+
+/* Layout Wrapper - row layout */
+main .layout-wrapper.layout-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 30px;
+}
+
+main .layout-wrapper.layout-row > div {
+  flex: 1 1 calc(50% - 15px);
+  min-width: 250px;
+}
+
+/* Single item in row takes half width */
+main .layout-wrapper.layout-row > div:only-child {
+  flex: 0 1 calc(50% - 15px);
+  max-width: calc(50% - 15px);
+}
+
+/* Layout Wrapper - column layout */
+main .layout-wrapper.layout-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+main .layout-wrapper.layout-column > .layout-item {
+  width: 100%;
+}
+
+/* Form text fields inside layout wrapper */
+main .layout-wrapper .form-text-label {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  color: #0b2143;
+  margin-bottom: 8px;
+}
+
+main .layout-wrapper .form-text-input-wrapper {
+  position: relative;
+}
+
+main .layout-wrapper .form-text-input {
+  width: 100%;
+  height: 64px;
+  background: #f7f9fb;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 16px;
+  color: #272e34;
+  transition: border-color 0.2s;
+}
+
+main .layout-wrapper .form-text-input:hover,
+main .layout-wrapper .form-text-input:focus {
+  border-color: #1463f7;
+  outline: none;
+}
+
+main .layout-wrapper textarea.form-text-input {
+  height: auto;
+  min-height: 120px;
+  resize: vertical;
+}
+
+main .layout-wrapper .form-text-icon {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+main .layout-wrapper .form-text-icon img {
+  width: 28px;
+  height: 28px;
+}
+
+@media (width <= 768px) {
+  main .layout-wrapper.layout-row > div {
+    flex: 1 1 100%;
+  }
+}
