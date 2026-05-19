@@ -7,7 +7,7 @@ main .layout-wrapper-wrapper {
 main .layout-wrapper.layout-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 24px 30px;
+  gap: 16px 30px;
 }
 
 main .layout-wrapper.layout-row > div {
@@ -47,7 +47,7 @@ main .layout-wrapper .form-text-input-wrapper {
 
 main .layout-wrapper .form-text-input {
   width: 100%;
-  height: 64px;
+  height: 52px;
   background: #f7f9fb;
   border: 2px solid transparent;
   border-radius: 8px;
