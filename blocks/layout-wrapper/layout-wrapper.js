@@ -1,11 +1,11 @@
 export default function decorate(block) {
-  const items = [...block.querySelectorAll(':scope > div')];
-
   if (block.classList.contains('column')) {
     block.classList.add('layout-column');
   } else {
     block.classList.add('layout-row');
   }
+
+  const items = [...block.querySelectorAll(':scope > div')];
 
   items.forEach((item) => {
     const cols = item.querySelectorAll(':scope > div');
