@@ -115,17 +115,7 @@
   },
   {
     "id": "layout-wrapper",
-    "fields": [
-      {
-        "component": "select",
-        "name": "classes",
-        "label": "Layout Direction",
-        "options": [
-          { "name": "Row (side by side)", "value": "row" },
-          { "name": "Column (stacked)", "value": "column" }
-        ]
-      }
-    ]
+    "fields": []
   },
   {
     "id": "banner",
@@ -159,15 +149,7 @@
   },
   {
     "id": "products",
-    "fields": [
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "classes",
-        "label": "Style",
-        "value": ""
-      }
-    ]
+    "fields": []
   },
   {
     "id": "product-item",
@@ -277,15 +259,7 @@
   },
   {
     "id": "form-checkbox",
-    "fields": [
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "classes",
-        "label": "Style",
-        "value": ""
-      }
-    ]
+    "fields": []
   },
   {
     "id": "checkbox-item",
